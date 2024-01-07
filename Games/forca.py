@@ -1,3 +1,6 @@
+# Text Sequence Type — str
+# https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str
+
 def jogar():
 
     palavra_secreta = "banana"
@@ -6,14 +9,23 @@ def jogar():
     acertou = False
 
     while (not enforcou and not acertou):
-        chute = input("Escolha uma letra: ")
+
+        # strip() -> Remove os espaços da string
+        chute = input("Escolha uma letra: ").strip()
         
         posicao = 0
-        for letra in palavra_secreta:       
-            if (chute == letra):
-                print(f"Encontrei a letra ({letra}) na posição {posicao}.")
+
+        # Esse FOR percorre toda a string e separa as posições de cada letra da palavra secreta
+        for letra in palavra_secreta:
+
+            # lower() -> Converte toda a string para o formato minúsculo
+            # upper() -> Converte toda a string para o formato maiusculo
+            if (chute.lower() == letra.lower()):
+
+                # Formatando a string para receber os dados das variaveis
+                print(f"Encontrei a letra ({chute}) na posição {posicao}.")
             
-            posicao = posicao + 1
+            posicao += 1
 
 if (__name__ == "__main__"):
     jogar()
